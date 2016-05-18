@@ -20,9 +20,3 @@ class Account(object):
 
     def check_balance(self):
         return self.balance()
-
-def main():
-    pass
-
-if __name__ == '__main__':
-    main()
