@@ -10,13 +10,13 @@ class Account(object):
         self.id = id
         self.balance = 0
 
+    def __repr__(self):
+        return "%s(%r)" % (self.__class__, self.id)
+
     def withdraw(self, ammount):
-        if ammount > self.balance():
+        if ammount > self.balance:
             raise AccountException('overdraft')
         self.balance -= ammount
 
     def deposit(self, ammount):
         self.balance += ammount
-
-    def check_balance(self):
-        return self.balance()
