@@ -14,9 +14,13 @@ class Account(object):
         return "%s(%r)" % (self.__class__, self.id)
 
     def withdraw(self, ammount):
+        if ammount < 0:
+            raise ValueError('negative withdraw')
         if ammount > self.balance:
             raise AccountException('overdraft')
         self.balance -= ammount
 
     def deposit(self, ammount):
+        if ammount < 0:
+            raise ValueError('negative deposit')
         self.balance += ammount

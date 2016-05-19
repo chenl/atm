@@ -12,9 +12,9 @@ def new_account():
 @pytest.fixture
 def account_100():
     'account with balance of 100'
-    a = Account('account_100')
-    a.deposit(100)
-    return a
+    account = Account('account_100')
+    account.deposit(100)
+    return account
 
 def test_account_creation(new_account):
     assert new_account.id == 'new_account'
@@ -35,3 +35,12 @@ def test_account_withdraw_all_at_once(account_100):
 def test_account_overdraft(account_100):
     with pytest.raises(AccountException):
         account_100.withdraw(101)
+    assert account_100.balance == 100
+
+def test_account_negative_withdraw(account_100):
+    with pytest.raises(ValueError):
+        account_100.withdraw(-1)
+
+def test_account_negative_deposit(account_100):
+    with pytest.raises(ValueError):
+        account_100.deposit(-1)
