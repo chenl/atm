@@ -45,3 +45,9 @@ def test_store_save(empty_file_name):
     store.save(iter(LIST_CONTENT))
     with open(empty_file_name, 'rb') as non_empty_file:
         assert non_empty_file.read() == FILE_CONTENT
+
+def test_store_call(empty_file_name):
+    store = Store(empty_file_name)
+    store(iter(LIST_CONTENT))
+    with open(empty_file_name, 'rb') as non_empty_file:
+        assert non_empty_file.read() == FILE_CONTENT

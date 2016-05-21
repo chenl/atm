@@ -14,7 +14,7 @@ class MockStore(object):
         self.saved = list(it)
 
 @pytest.fixture
-def some_bank(some_store):
+def some_bank():
     return Bank(MockStore())
 
 @pytest.fixture
@@ -65,4 +65,4 @@ def test_assert_put_get(loaded_bank):
     loaded_bank.put_account(put_acc)
     get_acc = loaded_bank.get_account('non_exists_account')
     assert get_acc.id == 'non_exists_account'
-    assert getattr.balance == 42
+    assert get_acc.balance == 42
