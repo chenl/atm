@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from .util import fn_to_title
+from util import fn_to_title
 
 class Menu(object):
 

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from .account import Account
+from account import Account
 
 class BankException(Exception):
     pass
@@ -19,6 +19,7 @@ class Bank(object):
 
     def __enter__(self):
         self.load()
+        return self
 
     def __exit__(self, exc_type, exc_value, traceback):
         self.save()
