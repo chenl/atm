@@ -2,22 +2,27 @@
 
 """Account data storage"""
 
-import atm.store
-import atm.account
+import csv
 
-class Bank(object):
-    def __init__(self, store):
-        self.store = store
-        self.accounts = {}
+class Store(object):
+    """data store for a data seqence"""
+
+    def __init__(self, filename):
+        self.filename = filename
+
+    def save(self, it):
+        """Save an iterable into csv"""
+        with open(self.filename, 'wb') as db:
+            writer = csv.writer(db)
+            for item in it:
+                writer.writerow(item)
 
     def load(self):
-        self.accounts = self.store.load()
+        """Get an iterable out of csv"""
+        with open(self.filename, 'rb') as db:
+            reader = csv.reader(db)
+            for row in reader:
+                yield row
 
-    def save(self):
-        self.store.save(self.accounts)
-
-    def get_account(self, id):
-        return self.accounts[id]
-
-    def put_account(self, account):
-        self.accounts[account.id] = account
+    def __iter__(self):
+        return self.load()
