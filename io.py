@@ -34,3 +34,6 @@ def get_menu_entry(max_val, msg=''):
         if 1 <= val <= max_val:
             return val
         err(err_msg)
+
+def get_password(msg):
+    return get(msg)
