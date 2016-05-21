@@ -17,6 +17,9 @@ class Store(object):
             for item in it:
                 writer.writerow(item)
 
+    def __call__(self, it):
+        self.save(it)
+
     def load(self):
         """Get an iterable out of csv"""
         with open(self.filename, 'rb') as db:
