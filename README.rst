@@ -5,8 +5,8 @@ ATM - Automatic Teller Machine
 :date: 2016-05-21
 :Credit:
    * Requirements: CentinelOne_
-   * Flower: gjs_
+   * Flower: jgs_
    * QA: My dear wife :)
 
 .. _CentinelOne: https://www.sentinelone.com/
-.. _gjs: http://www.asciiworld.com/-Flowers-.html
+.. _jgs: http://www.asciiworld.com/-Flowers-.html
