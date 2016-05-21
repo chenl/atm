@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 import pytest
@@ -12,13 +11,15 @@ def new_account():
 @pytest.fixture
 def account_100():
     'account with balance of 100'
-    account = Account('account_100')
-    account.deposit(100)
-    return account
+    return Account('account_100', 100)
 
 def test_account_creation(new_account):
     assert new_account.id == 'new_account'
     assert new_account.balance == 0
+
+def test_account_creation_with_balance(account_100):
+    assert account_100.id == 'account_100'
+    assert account_100.balance == 100
 
 def test_account_deposit(new_account):
     new_account.deposit(42)

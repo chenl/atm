@@ -6,9 +6,9 @@ class AccountException(Exception):
 
 class Account(object):
 
-    def __init__(self, id):
+    def __init__(self, id, balance=0):
         self.id = id
-        self.balance = 0
+        self.balance = balance
 
     def __repr__(self):
         return "%s(%r)" % (self.__class__, self.id)
