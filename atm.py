@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from store import Store
-from bank import Bank
-from ui import bank_menu
+from atm.store import Store
+from atm.bank import Bank
+from atm.ui import bank_menu
 
 def main():
     with Bank(Store('bank.csv')) as bank:
