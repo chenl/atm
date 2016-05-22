@@ -5,7 +5,7 @@ from atm.account import Account, AccountException
 
 @pytest.fixture
 def new_account():
-    'a new account with balance of 100'
+    'a new account with balance of 0'
     return Account('new_account')
 
 @pytest.fixture
